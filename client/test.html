@@ -1,0 +1,88 @@
+<body>
+</body>
+<template name="App_body">
+  {{> Template.dynamic template=main}}
+</template>
+
+<template name="test">
+  <h1>Test Results</h1>
+
+
+       {{#if currentUser}}
+     
+      {{> upload_bootstrap formData=get_user}}
+
+	<button id="show_files">Show files</button>
+	<div id="file-list"></div>
+File: <input type="text" name="fileNameShare" id="fileNameShare">
+<br/> Username: <input type="text" name="userNameShare" id="userNameShare"><button id="share">Share</button>
+	{{> displayFile }}
+
+
+      {{> logoutForm}}
+     
+       <li><input type="file"  id="upload">Select File</li>
+
+    {{else}}
+
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 col-lg-6">
+                {{> loginForm}}
+            </div>
+          <div class="col-md-6 col-lg-6">
+            {{> signupForm}}
+          </div>
+        </div>
+      </div>
+
+  {{/if}}
+
+
+</template>
+  <template  name="signupForm">
+  <form id="signup-form">
+    <h2>Sign Up</h2>
+
+    <label for="signup-username">Username</label>
+    <input type="text" id="signup-username" class="form-control" placeholder="Username" /><br />
+
+    <label for="signup-email">Email</label>
+    <input type="text" id="signup-email" class="form-control" placeholder="Email" /><br />
+
+    <label for="signup-password">Password</label>
+    <input type="password" id="signup-password" class="form-control" placeholder="Password" /><br />
+
+
+    <label for="signup-name">Full Name</label>
+    <input type="text" id="signup-name" class="form-control" placeholder="Full Name" /><br />
+
+    <button class="btn btn-success" type="submit">Sign Up</button>
+  </form>
+</template>
+
+
+<template name="logoutForm">
+  <form id="logout-form">
+    {{currentUser.profile.fullname}}<button type="submit" class="btn btn-danger">Log Out</button>
+  </form>
+</template>
+
+
+
+<template name="loginForm">
+<form id="login-form">
+   <h2>Log In</h2>
+
+
+    <label for="login-username">Username</label>
+    <input type="text" id="login-username" class="form-control" placeholder="Username" /><br />
+
+
+    <label for="login-password">Password</label>
+    <input type="password" id="login-password" class="form-control" placeholder="Password" /><br />
+
+    <button type="submit" class="btn btn-success">Log In</button>
+</form>
+ </template>
+

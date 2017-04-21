@@ -1,0 +1,167 @@
+<template name="index">
+  <header class="header dark-bg">
+            <div class="toggle-nav">
+                <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"><i class="icon_menu"></i></div>
+            </div>
+
+            <!--logo start-->
+            <a href="index.html" class="logo">Secure <span class="lite">Drive</span></a>
+            <!--logo end-->
+
+            <div class="nav search-row" id="top_menu">
+                <!--  search form start -->
+                <ul class="nav top-menu">                    
+                    <li>
+                        <form class="navbar-form">
+                            <input class="form-control" placeholder="Search" type="text">
+                        </form>
+                    </li>                    
+                </ul>
+                <!--  search form end -->                
+            </div>
+
+            <div class="top-nav notification-row">                
+                <!-- notificatoin dropdown start-->
+                <ul class="nav pull-right top-menu">
+                    
+                    
+                    <!-- user login dropdown start-->
+                    <li class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <span class="profile-ava">
+                                <img alt="" src="/upload/img/user.jpg">
+                            </span>
+                            <span class="username">Anmol Rastogi</span>
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu extended logout">
+                            <div class="log-arrow-up"></div>
+                            <li class="eborder-top">
+                                <a href="#"><i class="icon_profile"></i> My Profile</a>
+                            </li>
+                            <li>
+                                <a href="login.html"><i class="icon_key_alt"></i> Log Out</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- user login dropdown end -->
+                </ul>
+                <!-- notificatoin dropdown end-->
+            </div>
+      </header>      
+      <!--header end-->
+
+      <!--sidebar start-->
+      <aside>
+          <div id="sidebar"  class="nav-collapse ">
+              <!-- sidebar menu start-->
+              <ul class="sidebar-menu">                
+                  <li class="active">
+                      <a class="" href="index.html">
+                          <i class="icon_house_alt"></i>
+                          <span>Dashboard</span>
+                      </a>
+                  </li>
+          <li class="sub-menu">
+                      <a href="javascript:;" class="">
+                          <i class="icon_music"></i>
+                          <span>Music</span>
+                          <!--<span class="menu-arrow arrow_carrot-right"></span>-->
+                      </a>
+                  </li>       
+                  <li class="sub-menu">
+                      <a href="javascript:;" class="">
+                          <i class="icon_desktop"></i>
+                          <span>Movies</span>
+                         <!-- <span class="menu-arrow arrow_carrot-right"></span>-->
+                      </a>
+                      </li>
+                  <li>
+                      <a class="" href="#">
+                          <i class="icon_document_alt"></i>
+                          <span>My files</span>
+                      </a>
+                  </li>
+                  
+                  
+              </ul>
+              <!-- sidebar menu end-->
+          </div>
+      </aside>
+      <!--sidebar end-->
+      
+      <!--main content start-->
+      <section id="main-content">
+          <section class="wrapper">            
+              <!--overview start-->
+        <div class="row">
+        <div class="col-lg-12">
+          <h3 class="page-header"><i class="fa fa-laptop"></i> Dashboard</h3>
+          <ol class="breadcrumb">
+            <li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
+            <li><i class="fa fa-laptop"></i>Dashboard</li>                
+          </ol>
+        </div>
+      </div>
+         
+          <form class="box" method="post" action="" enctype="multipart/form-data">
+                <div class="box__input">
+                <input class="box__file" type="file" name="files[]" id="file" data-multiple-caption="{count} files selected" multiple /> 
+                    <label for="file"><strong>Choose a file</strong><span class="box__dragndrop"> or drag it here</span>.</label>
+                     <button class="box__button" type="submit">Upload</button>
+                </div>
+               <!--<div class="box__uploading">Uploading&hellip;</div>
+                    <div class="box__success">Done!</div>
+                <div class="box__error">Error! <span></span>.</div> -->
+         </form>
+        </section>
+    </section>
+  <!-- container section start -->
+<script>
+
+      //knob
+      $(function() {
+        $(".knob").knob({
+          'draw' : function () { 
+            $(this.i).val(this.cv + '%')
+          }
+        })
+      });
+
+      //carousel
+      $(document).ready(function() {
+          $("#owl-slider").owlCarousel({
+              navigation : true,
+              slideSpeed : 300,
+              paginationSpeed : 400,
+              singleItem : true
+
+          });
+      });
+
+      //custom select box
+
+      $(function(){
+          $('select.styled').customSelect();
+      });
+    
+    /* ---------- Map ---------- */
+  $(function(){
+    $('#map').vectorMap({
+      map: 'world_mill_en',
+      series: {
+        regions: [{
+          values: gdpData,
+          scale: ['#000', '#000'],
+          normalizeFunction: 'polynomial'
+        }]
+      },
+    backgroundColor: '#eef3f7',
+      onLabelShow: function(e, el, code){
+        el.html(el.html()+' (GDP - '+gdpData[code]+')');
+      }
+    });
+  });
+
+  </script>
+</template>
